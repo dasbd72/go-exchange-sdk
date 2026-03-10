@@ -15,12 +15,12 @@ replace github.com/dasbd72/go-exchange-sdk/bitfinex => ../../bitfinex
 replace github.com/dasbd72/go-exchange-sdk/manager => ../../manager
 
 require (
-	github.com/dasbd72/go-exchange-sdk/binance v0.0.0-00010101000000-000000000000
-	github.com/dasbd72/go-exchange-sdk/bitfinex v0.0.0-00010101000000-000000000000
-	github.com/dasbd72/go-exchange-sdk/config v0.0.0-00010101000000-000000000000
-	github.com/dasbd72/go-exchange-sdk/manager v0.0.0-00010101000000-000000000000
-	github.com/dasbd72/go-exchange-sdk/max v0.0.0-00010101000000-000000000000
-	github.com/dasbd72/go-exchange-sdk/okx v0.0.0-00010101000000-000000000000
+	github.com/dasbd72/go-exchange-sdk/binance v0.0.0
+	github.com/dasbd72/go-exchange-sdk/bitfinex v0.0.0
+	github.com/dasbd72/go-exchange-sdk/config v0.0.0
+	github.com/dasbd72/go-exchange-sdk/manager v0.0.0
+	github.com/dasbd72/go-exchange-sdk/max v0.0.0
+	github.com/dasbd72/go-exchange-sdk/okx v0.0.0
 	github.com/joho/godotenv v1.5.1
 	github.com/spf13/cobra v1.8.0
 )
