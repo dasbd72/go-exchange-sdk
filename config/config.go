@@ -1,8 +1,10 @@
 package config
 
 import (
+	"fmt"
 	"os"
 	"path"
+	"strings"
 
 	"github.com/joho/godotenv"
 )
@@ -20,13 +22,18 @@ type Config struct {
 }
 
 func Load() (*Config, error) {
-	err := godotenv.Load()
-	if err != nil {
-		return nil, err
+	// Load environment variables from all files, raise error if all of the files are not found
+	envfiles := []string{".env", path.Join(os.Getenv("HOME"), ".ccyrc")}
+	envfilesLoaded := 0
+	for _, envfile := range envfiles {
+		if _, err := os.Stat(envfile); os.IsNotExist(err) {
+			continue
+		}
+		godotenv.Load(envfile)
+		envfilesLoaded++
 	}
-	err = godotenv.Load(path.Join(os.Getenv("HOME"), ".ccyrc"))
-	if err != nil {
-		return nil, err
+	if envfilesLoaded == 0 {
+		return nil, fmt.Errorf("no environment files found, please create one of the following files: %s", strings.Join(envfiles, ", "))
 	}
 
 	return &Config{
